@@ -1,1 +1,30 @@
 @import '~bootstrap/scss/bootstrap';
+
+.board {
+  background-color: blue;
+  width: 500px;
+}
+
+.column {
+  border: solid black 3px;
+  color: orange;
+}
+
+.row {
+  border: solid black 3px;
+  color: orange;
+  height: 100px;
+}
+
+footer {
+  background: pink;
+  height: 50px;
+}
+
+form {
+  background-color: silver;
+}
+
+.title {
+  background-color: red;
+}
