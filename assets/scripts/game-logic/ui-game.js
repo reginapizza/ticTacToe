@@ -11,7 +11,17 @@ const onSameChoice = function () {
   console.log('invalid move')
 }
 
+const onNewGameSuccess = function (data) {
+  console.log(data)
+}
+
+const onNewGameFailure = function (error) {
+  console.error(error)
+}
+
 module.exports = {
   onChoice,
-  onSameChoice
+  onSameChoice,
+  onNewGameSuccess,
+  onNewGameFailure
 }
