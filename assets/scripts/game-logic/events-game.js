@@ -4,8 +4,6 @@ const api = require('./api-game.js')
 const ui = require('./ui-game.js')
 const store = require('../store')
 
-let playerXMoves = []
-let playerOMoves = []
 let currentPlayer = 'X'
 
 const switchPlayer = function () {
@@ -16,89 +14,128 @@ const switchPlayer = function () {
   }
 }
 
-const onChoice = function (event) {
-  event.preventDefault()
-  const div = event.target
-  console.log(div)
-  $(event.target).text('x')
-}
+// const onChoice = function (event) {
+//   event.preventDefault()
+//   const div = event.target
+//   console.log(div)
+//   $(event.target).text('x')
+// }
 
 const cellClick = function (event) {
   // if the cell clicked is both empty and the game is not over...
-  if ($(event.target).text() === '' /*&& store.gameOver === false*/) {
+  if ($(event.target).text() === '' /* && store.gameOver === false */) {
     // makes markers for the current player x or o
     $(event.target).text(currentPlayer)
+    checkForWin()
+    checkForTie()
+    isGameOver()
     if (currentPlayer === 'X') {
-      playerXMoves.push(event.target.id)
+      // store.user/* store playerX data */
     } else if (currentPlayer === 'O') {
-      playerOMoves.push(event.target.id)
+      // store.user/* store playerO data */
     }
-    $('#messageBox').text(checkForWin())
+    //       playerXMoves.push(event.target.id)
+    //     } else if (currentPlayer === 'O') {
+    //       playerOMoves.push(event.target.id)
+    //     }
+    // $('#messageBox').text(checkForWin())
     switchPlayer()
   }
 }
+// store.game.cells[event.target.id] = currentPlayer
 
-const onNewGameClick = function (event) {
+// this function will clear the gameboard, not refresh, and trigger api newGame
+const onNewGame = function (event) {
   event.preventDefault()
   // clear board but don't refresh page
-  let cells = ['', '', '', '', '', '', '', '', '']
   api.newGame()
     .then(ui.onNewGameSuccess)
     .catch(ui.onNewGameFailure)
 }
+
+const onUpdateGame = function (event) {
+  event.preventDefault()
+  // clear board but don't refresh page
+  api.newGame()
+    .then(ui.onUpdateGameSuccess)
+    .catch(ui.onUpdateGameFailure)
+}
+
+// this functions checks for a win and tells you which player won.
 const checkForWin = function () {
+  const cells = store.game.cells
   // for horizontal wins X
-  if (playerXMoves[0] === 'X' && playerXMoves[1] === 'X' && playerXMoves[2] === 'X') {
-    return 'Player X has won!'
-  } else if (playerXMoves[3] === 'X' && playerXMoves[4] === 'X' && playerXMoves[5] === 'X') {
-    return 'Player X won!'
-  } else if (playerXMoves[6] === 'X' && playerXMoves[7] === 'X' && playerXMoves[8] === 'X') {
-    return 'Player X won!'
+  if (cells[0] === 'X' && cells[1] === 'X' && cells[2] === 'X') {
+    ui.onWin()
+  } else if (cells[3] === 'X' && cells[4] === 'X' && cells[5] === 'X') {
+    ui.onWin()
+  } else if (cells[6] === 'X' && cells[7] === 'X' && cells[8] === 'X') {
+    ui.onWin()
     // for vertical wins for X
-  } else if (playerXMoves[0] === 'X' && playerXMoves[3] === 'X' && playerXMoves[6] === 'X') {
-    return 'Player X won!'
-  } else if (playerXMoves[1] === 'X' && playerXMoves[4] === 'X' && playerXMoves[7] === 'X') {
-    return 'Player X won!'
-  } else if (playerXMoves[2] === 'X' && playerXMoves[5] === 'X' && playerXMoves[8] === 'X') {
-    return 'Player X won!'
+  } else if (cells[0] === 'X' && cells[3] === 'X' && cells[6] === 'X') {
+    ui.onWin()
+  } else if (cells[1] === 'X' && cells[4] === 'X' && cells[7] === 'X') {
+    ui.onWin()
+  } else if (cells[2] === 'X' && cells[5] === 'X' && cells[8] === 'X') {
+    ui.onWin()
   // for diagonal wins for X
-  } else if (playerXMoves[0] === 'X' && playerXMoves[4] === 'X' && playerXMoves[8] === 'X') {
-    return 'Player X won!'
-  } else if (playerXMoves[2] === 'X' && playerXMoves[4] === 'X' && playerXMoves[6] === 'X') {
-    return 'Player X won!'
+  } else if (cells[0] === 'X' && cells[4] === 'X' && cells[8] === 'X') {
+    ui.onWin()
+  } else if (cells[2] === 'X' && cells[4] === 'X' && cells[6] === 'X') {
+    ui.onWin()
   // for horizontal wins for O
-  } else if (playerOMoves[0] === 'O' && playerOMoves[1] === 'O' && playerOMoves[2] === 'O') {
-    return 'Player O has won!'
-  } else if (playerOMoves[3] === 'O' && playerOMoves[4] === 'O' && playerOMoves[5] === 'O') {
-    return 'Player O won!'
-  } else if (playerOMoves[6] === 'O' && playerOMoves[7] === 'X' && playerOMoves[8] === 'X') {
-    return ' Player X won!'
+  } else if (cells[0] === 'O' && cells[1] === 'O' && cells[2] === 'O') {
+    ui.onWin()
+  } else if (cells[3] === 'O' && cells[4] === 'O' && cells[5] === 'O') {
+    ui.onWin()
+  } else if (cells[6] === 'O' && cells[7] === 'X' && cells[8] === 'X') {
+    ui.onWin()
   // for vertical wins for O
-  } else if (playerOMoves[0] === 'O' && playerOMoves[3] === 'O' && playerOMoves[6] === 'O') {
-    return 'Player X won!'
-  } else if (playerOMoves[1] === 'O' && playerOMoves[4] === 'O' && playerOMoves[7] === 'O') {
-    return 'Player X won!'
-  } else if (playerOMoves[2] === 'O' && playerOMoves[5] === 'O' && playerOMoves[8] === 'O') {
-    return 'Player O won!'
+  } else if (cells[0] === 'O' && cells[3] === 'O' && cells[6] === 'O') {
+    ui.onWin()
+  } else if (cells[1] === 'O' && cells[4] === 'O' && cells[7] === 'O') {
+    ui.onWin()
+  } else if (cells[2] === 'O' && cells[5] === 'O' && cells[8] === 'O') {
+    ui.onWin()
   // for diagonal wins for O
-  } else if (playerOMoves[0] === 'O' && playerOMoves[4] === 'O' && playerOMoves[8] === 'O') {
-    return 'Player X won!'
-  } else if (playerOMoves[2] === 'O' && playerOMoves[4] === 'O' && playerOMoves[6] === 'O') {
-    return 'Player O won!'
+  } else if (cells[0] === 'O' && cells[4] === 'O' && cells[8] === 'O') {
+    ui.onWin()
+  } else if (cells[2] === 'O' && cells[4] === 'O' && cells[6] === 'O') {
+    ui.onWin()
+  }
+}
+
+const checkForTie = function () {
+  const cells = store.game.cells
+  if (cells !== ''/* && gameOver === true */) {
+    ui.onTie()
+  }
+}
+
+const isGameOver = function () {
+  if (checkForWin === true || checkForWin === false) {
+    return true
+  } else {
+    return false
   }
 }
 
 module.exports = {
-  onChoice,
-  onNewGameClick,
+  // onChoice,
+  onNewGame,
+  onUpdateGame,
   checkForWin,
-  cellClick
+  checkForTie,
+  cellClick,
+  currentPlayer,
+  isGameOver
 }
+
 // check if a new game has been started
-// check if cell is empty when a player clicks it
-// figure out which cell was clicked on (through the ID)
-// use that ID to update the array
-// when the array is updated, use that to check if it
-// matches any winning combinations
+// -check if cell is empty when a player clicks it
+// -figure out which cell was clicked on (through the ID)
+// -use that ID to update the array
+// -when the array is updated, use that to check if it
+// -matches any winning combinations
 // sending index, current player, and if the game is over to api
 // switch player if game is not over

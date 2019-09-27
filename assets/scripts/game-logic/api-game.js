@@ -21,6 +21,7 @@ const newGame = function () {
     data: {}
   })
 }
+
 const indexOfGame = function () {
   return $.ajax({
     url: config.apiUrl + '/games',
