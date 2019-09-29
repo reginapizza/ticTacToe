@@ -8,6 +8,7 @@ store.player1 = 'X'
 store.player2 = 'O'
 store.currentPlayer = 'X'
 store.gameOver = false
+store.cells = ['', '', '', '', '', '', '', '', '']
 
 const switchPlayer = function () {
   if (store.currentPlayer === 'X') {
@@ -17,16 +18,11 @@ const switchPlayer = function () {
   }
 }
 
-// const onChoice = function (event) {
-//   event.preventDefault()
-//   const div = event.target
-//   console.log(div)
-//   $(event.target).text('x')
-// }
-
 const onNewGame = function (event) {
   event.preventDefault()
+  store.isGameOver = false
   store.currentPlayer = store.player1
+  store.cells = ['', '', '', '', '', '', '', '', '']
   api.newGame()
     .then(ui.onNewGameSuccess)
     .catch(ui.onNewGameFailure)
@@ -43,6 +39,7 @@ const cellClick = function (event) {
         .then(ui.onXTurnSuccess)
         .catch(ui.onError)
       checkForWin()
+      checkForTie()
       switchPlayer()
     } else if (store.currentPlayer === store.player2) {
       store.cells[event.target.id] = 'O'
@@ -52,15 +49,15 @@ const cellClick = function (event) {
         .then(ui.onOTurnSuccess)
         .catch(ui.onError)
       checkForWin()
+      checkForTie()
       switchPlayer()
     }
     // this triggers onSameChoice if a box with an X or O already is clicked
   } else if ($(event.target).text() === 'X' || $(event.target).text() === 'O') {
     ui.onSameChoice()
+    // this triggers onTie if the result is a tie
   } else if (checkForTie() === true) {
     ui.onTie()
-  } else if (isGameOver() === true) {
-    ui.onGameOver()
   }
 }
 // store.game.cells[event.target.id] = currentPlayer
@@ -101,7 +98,7 @@ const checkForWin = function () {
     ui.onOWin()
   } else if (cells[3] === 'O' && cells[4] === 'O' && cells[5] === 'O') {
     ui.onOWin()
-  } else if (cells[6] === 'O' && cells[7] === 'X' && cells[8] === 'X') {
+  } else if (cells[6] === 'O' && cells[7] === 'O' && cells[8] === 'O') {
     ui.onOWin()
   // for vertical wins for O
   } else if (cells[0] === 'O' && cells[3] === 'O' && cells[6] === 'O') {
@@ -109,7 +106,7 @@ const checkForWin = function () {
   } else if (cells[1] === 'O' && cells[4] === 'O' && cells[7] === 'O') {
     ui.onOWin()
   } else if (cells[2] === 'O' && cells[5] === 'O' && cells[8] === 'O') {
-    ui.onWin()
+    ui.onOWin()
   // for diagonal wins for O
   } else if (cells[0] === 'O' && cells[4] === 'O' && cells[8] === 'O') {
     ui.onOWin()
@@ -119,10 +116,12 @@ const checkForWin = function () {
 }
 
 const checkForTie = function () {
-  const cells = store.cells
-  if (cells !== '' && store.gameOver === true) {
-    ui.onTie()
+  for (let i = 0; i < store.cells.length; i++) {
+    if (store.cells[i] === '') {
+      return false
+    }
   }
+  ui.onTie()
 }
 
 const isGameOver = function () {

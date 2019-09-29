@@ -13,7 +13,6 @@ const onSameChoice = function () {
 const onNewGameSuccess = function (data) {
   store.game = data.game
   console.log(store)
-  store.cells = []
   $('.cell').text('')
   $('#messageBox').text('Make your move...choose wisely!')
 }
