@@ -28,7 +28,7 @@ const onSignInSuccess = function (responseData) {
   console.log('responseData is', responseData)
   store.user = responseData.user
   console.log('store is', store)
-  $('#sign-up, #sign-in').hide()
+  $('.sign-up, .sign-in').hide()
 }
 
 const onSignInFailure = function () {
@@ -45,7 +45,7 @@ const onChangePasswordFailure = function () {
 
 const onSignOutSuccess = function () {
   successMessage('Signed out successfully!')
-  $('#sign-up, #sign-in').show()
+  $('.sign-up, .sign-in').show()
 }
 
 const onSignOutFailure = function () {

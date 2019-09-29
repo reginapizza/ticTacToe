@@ -2,9 +2,9 @@
 const events = require('./events-game.js')
 const store = require('../store')
 
-// const onChoice = function () {
-//   console.log('player made a choice')
-// }
+const onCellClick = function () {
+  console.log(events.currentPlayer + ' made a choice')
+}
 
 const onSameChoice = function () {
   $('#messageBox').text('That box is already taken!')
@@ -13,6 +13,7 @@ const onSameChoice = function () {
 const onNewGameSuccess = function (data) {
   store.game = data.game
   console.log(store)
+  store.cells = []
   $('.cell').text('')
   $('#messageBox').text('Make your move...choose wisely!')
 }
@@ -28,23 +29,25 @@ const onUpdateGameSuccess = function (data) {
   $('#messageBox').text('Make your move...choose wisely!')
 }
 
-const onWin = function () {
-  $('#messageBox').text(events.currentPlayer + 'won the game! ' + tryAgain)
+const onXWin = function () {
+  $('#messageBox').text('X won the game! Press the "Create a New Game Button" to play again!')
+}
+
+const onOWin = function () {
+  $('#messageBox').text('O won the game! Press the "Create a New Game Button" to play again!')
 }
 
 const onTie = function () {
-  $('#messageBox').text('Woah! The game is a tie!' + tryAgain)
+  $('#messageBox').text('Woah! The game is a tie! Press the "Create a New Game Button" to play again!')
 }
 
-const tryAgain = function () {
-  return 'Press the New Game Button to play again!'
-}
 module.exports = {
-  // onChoice,
+  onCellClick,
   onSameChoice,
   onNewGameSuccess,
   onNewGameFailure,
   onUpdateGameSuccess,
-  onWin,
+  onXWin,
+  onOWin,
   onTie
 }

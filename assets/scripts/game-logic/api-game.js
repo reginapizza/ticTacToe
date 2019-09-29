@@ -11,6 +11,7 @@ const store = require('../store')
 //     },
 //   })
 // }
+
 const newGame = function () {
   return $.ajax({
     method: 'POST',
