@@ -26,7 +26,7 @@ const switchPlayer = function () {
 
 const onNewGame = function (event) {
   event.preventDefault()
-  // clear board but don't refresh page
+  store.currentPlayer = store.player1
   api.newGame()
     .then(ui.onNewGameSuccess)
     .catch(ui.onNewGameFailure)
@@ -53,17 +53,19 @@ const cellClick = function (event) {
         .catch(ui.onError)
       checkForWin()
       switchPlayer()
-    } else if (store.cells[$(event.target).text()] !== '' && store.gameOver === false) {
-      ui.onSameChoice()
-    } else if (store.gameOver === true) {
-      ui.tryAgain()
-    } // change the last else if to be a conditional for the parent if
+    }
+    // this triggers onSameChoice if a box with an X or O already is clicked
+  } else if ($(event.target).text() === 'X' || $(event.target).text() === 'O') {
+    ui.onSameChoice()
+  } else if (checkForTie() === true) {
+    ui.onTie()
+  } else if (isGameOver() === true) {
+    ui.onGameOver()
   }
 }
 // store.game.cells[event.target.id] = currentPlayer
 
 // this function will clear the gameboard, not refresh, and trigger api newGame
-
 const onUpdateGame = function (event) {
   event.preventDefault()
   // clear board but don't refresh page
@@ -125,9 +127,7 @@ const checkForTie = function () {
 
 const isGameOver = function () {
   if (checkForWin() === true || checkForTie === true) {
-    return true
-  } else {
-    return false
+    ui.onGameOver()
   }
 }
 

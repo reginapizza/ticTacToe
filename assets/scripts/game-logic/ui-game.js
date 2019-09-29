@@ -40,6 +40,11 @@ const onOWin = function () {
 const onTie = function () {
   $('#messageBox').text('Woah! The game is a tie! Press the "Create a New Game Button" to play again!')
 }
+const onGameOver = function () {
+  store.gameOver = true
+  $('.cell').text('')
+  $('#messageBox').text('The game has ended! Press the "Create a New Game Button" to play again!')
+}
 
 module.exports = {
   onCellClick,
@@ -49,5 +54,6 @@ module.exports = {
   onUpdateGameSuccess,
   onXWin,
   onOWin,
-  onTie
+  onTie,
+  onGameOver
 }
