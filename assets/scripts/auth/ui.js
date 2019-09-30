@@ -17,10 +17,10 @@ const onSignInSuccess = function (responseData) {
   $('#message').text('Signed In Successfully!')
   store.user = responseData.user
   $('.sign-up, .sign-in').hide()
+  $('.messageBox').show()
   $('.change-password, .sign-out').css('display', 'block')
   $('#new-game').css('display', 'block')
   $('.player-stats').css('display', 'block')
-  $('.board').css('display', 'block')
   $('.sign-in').trigger('reset')
 }
 

@@ -2,8 +2,24 @@
 const events = require('./events-game.js')
 const store = require('../store')
 
+const onError = function (error) {
+  return error
+}
+
 const onCellClick = function () {
-  console.log(events.currentPlayer + ' made a choice')
+  $('#messageBox').text(events.currentPlayer + ' made a choice')
+}
+
+const onXTurnSuccess = function () {
+  if (store.gameOver === false) {
+    $('#messageBox').text('Now it\'s player O\'s turn!')
+  }
+}
+
+const onOTurnSuccess = function () {
+  if (store.gameOver === false) {
+    $('#messageBox').text('Now it\'s player X\'s turn!')
+  }
 }
 
 const onSameChoice = function () {
@@ -11,9 +27,8 @@ const onSameChoice = function () {
 }
 
 const onNewGameSuccess = function (data) {
-  console.log('got to onNewGameSuccess')
   store.game = data.game
-  console.log(store)
+  $('.board').css('display', 'block')
   $('.cell').text('')
   $('#messageBox').text('Make your move...choose wisely!')
 }
@@ -57,7 +72,10 @@ const onGameTotalFailure = function (responseData) {
 }
 
 module.exports = {
+  onError,
   onCellClick,
+  onXTurnSuccess,
+  onOTurnSuccess,
   onSameChoice,
   onNewGameSuccess,
   onNewGameFailure,
