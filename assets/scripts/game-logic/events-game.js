@@ -4,11 +4,17 @@ const api = require('./api-game.js')
 const ui = require('./ui-game.js')
 const store = require('../store')
 
-// store.player1 = 'X'
-// store.player2 = 'O'
-// store.currentPlayer = 'X'
-// store.gameOver = false
-// store.cells = ['', '', '', '', '', '', '', '', '']
+const onNewGame = function (event) {
+  store.player1 = 'X'
+  store.player2 = 'O'
+  store.currentPlayer = 'X'
+  store.gameOver = false
+  store.cells = ['', '', '', '', '', '', '', '', '']
+  event.preventDefault()
+  api.newGame()
+    .then(ui.onNewGameSuccess)
+    .catch(ui.onNewGameFailure)
+}
 
 const switchPlayer = function () {
   if (store.currentPlayer === 'X') {
@@ -18,19 +24,6 @@ const switchPlayer = function () {
   }
 }
 
-const onNewGame = function (event) {
-  store.player1 = 'X'
-  store.player2 = 'O'
-  store.currentPlayer = 'X'
-  store.gameOver = false
-  store.cells = ['', '', '', '', '', '', '', '', '']
-  console.log('got to onNewGame')
-  event.preventDefault()
-  api.newGame()
-    .then(ui.onNewGameSuccess)
-    .catch(ui.onNewGameFailure)
-}
-
 const cellClick = function (event) {
   // if the cell clicked is both empty and the game is not over...
   if ($(event.target).text() === '' && store.gameOver === false) {
@@ -38,7 +31,6 @@ const cellClick = function (event) {
       store.cells[event.target.id] = 'X'
       $(event.target).text('X')
       const id = store.game.id
-      console.log(id, store.game.id)
       api.updateGame(id)
         .then(ui.onXTurnSuccess)
         .catch(ui.onError)

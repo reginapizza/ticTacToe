@@ -3,60 +3,56 @@
 const store = require('../store')
 // require so we can save the user and their token
 
-const successMessage = function (newText) {
-  $('#message').text(newText)
-  $('#message').removeClass('failure')
-  $('#message').addClass('success')
-}
-
-const failureMessage = function (newText) {
-  $('#message').text(newText)
-  $('#message').removeClass('success')
-  $('#message').addClass('failure')
-}
-
 const onSignUpSuccess = function () {
-  successMessage('Signed Up Successfully!')
+  $('#message').text('Signed Up Successfully!')
+  $('.sign-up').trigger('reset')
 }
 
 const onSignUpFailure = function () {
-  failureMessage('Sign up failed.')
+  $('#message').text('Signed Up Failed.')
+  $('.sign-up').trigger('reset')
 }
 
 const onSignInSuccess = function (responseData) {
-  successMessage('Signed In Successfully!')
+  $('#message').text('Signed In Successfully!')
   store.user = responseData.user
   $('.sign-up, .sign-in').hide()
   $('.change-password, .sign-out').css('display', 'block')
   $('#new-game').css('display', 'block')
   $('.player-stats').css('display', 'block')
   $('.board').css('display', 'block')
+  $('.sign-in').trigger('reset')
 }
 
 const onSignInFailure = function () {
-  failureMessage('Sign in failed.')
+  $('#message').text('Sign in failed.')
+  $('.sign-in').trigger('reset')
 }
 
 const onChangePasswordSuccess = function () {
-  successMessage('Password changed successfully!')
+  $('#message').text('Password changed successfully!')
+  $('.change-password').trigger('reset')
 }
 
 const onChangePasswordFailure = function () {
-  failureMessage('Password change failed.')
+  $('#message').text('Password change failed.')
+  $('.change-password').trigger('reset')
 }
 
 const onSignOutSuccess = function () {
-  successMessage('Signed out successfully!')
+  $('#message').text('Signed out successfully!')
   $('.sign-up, .sign-in').show()
   $('.change-password, .sign-out').hide()
   $('.board').hide()
   $('.player-stats').hide()
   $('#new-game').hide()
   $('#messageBox').hide()
+  $('.sign-out').trigger('reset')
 }
 
 const onSignOutFailure = function () {
-  failureMessage('Sign out failed :(')
+  $('#message').text('Sign out failed')
+  $('.sign-out').trigger('reset')
 }
 
 module.exports = {
