@@ -123,7 +123,6 @@ const checkForTie = function () {
     }
   }
   ui.onTie()
-  ui.onGameOver()
 }
 
 const gameTotal = function (event) {

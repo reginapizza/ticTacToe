@@ -40,6 +40,7 @@ const onOWin = function () {
 }
 
 const onTie = function () {
+  store.gameOver = true
   $('#messageBox').text('Woah! The game is a tie! Press the "Create a New Game Button" to play again!')
 }
 const onGameOver = function () {
