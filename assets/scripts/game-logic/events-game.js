@@ -20,7 +20,7 @@ const switchPlayer = function () {
 
 const onNewGame = function (event) {
   event.preventDefault()
-  store.isGameOver = false
+  store.gameOver = false
   store.currentPlayer = store.player1
   store.cells = ['', '', '', '', '', '', '', '', '']
   api.newGame()
@@ -38,8 +38,8 @@ const cellClick = function (event) {
       api.updateGame(id)
         .then(ui.onXTurnSuccess)
         .catch(ui.onError)
-      checkForWin()
       checkForTie()
+      checkForWin()
       switchPlayer()
     } else if (store.currentPlayer === store.player2) {
       store.cells[event.target.id] = 'O'
@@ -48,16 +48,14 @@ const cellClick = function (event) {
       api.updateGame(id)
         .then(ui.onOTurnSuccess)
         .catch(ui.onError)
-      checkForWin()
       checkForTie()
+      checkForWin()
       switchPlayer()
     }
     // this triggers onSameChoice if a box with an X or O already is clicked
-  } else if ($(event.target).text() === 'X' || $(event.target).text() === 'O') {
+  } else if (($(event.target).text() === 'X' || $(event.target).text() === 'O') && store.gameOver === false) {
     ui.onSameChoice()
     // this triggers onTie if the result is a tie
-  } else if (checkForTie() === true) {
-    ui.onTie()
   }
 }
 // store.game.cells[event.target.id] = currentPlayer
@@ -77,41 +75,57 @@ const checkForWin = function () {
   // for horizontal wins X
   if (cells[0] === 'X' && cells[1] === 'X' && cells[2] === 'X') {
     ui.onXWin()
+    store.gameOver = true
   } else if (cells[3] === 'X' && cells[4] === 'X' && cells[5] === 'X') {
     ui.onXWin()
+    store.gameOver = true
   } else if (cells[6] === 'X' && cells[7] === 'X' && cells[8] === 'X') {
     ui.onXWin()
+    store.gameOver = true
     // for vertical wins for X
   } else if (cells[0] === 'X' && cells[3] === 'X' && cells[6] === 'X') {
     ui.onXWin()
+    store.gameOver = true
   } else if (cells[1] === 'X' && cells[4] === 'X' && cells[7] === 'X') {
     ui.onXWin()
+    store.gameOver = true
   } else if (cells[2] === 'X' && cells[5] === 'X' && cells[8] === 'X') {
     ui.onXWin()
+    store.gameOver = true
   // for diagonal wins for X
   } else if (cells[0] === 'X' && cells[4] === 'X' && cells[8] === 'X') {
     ui.onXWin()
+    store.gameOver = true
   } else if (cells[2] === 'X' && cells[4] === 'X' && cells[6] === 'X') {
     ui.onXWin()
+    store.gameOver = true
   // for horizontal wins for O
   } else if (cells[0] === 'O' && cells[1] === 'O' && cells[2] === 'O') {
     ui.onOWin()
+    store.gameOver = true
   } else if (cells[3] === 'O' && cells[4] === 'O' && cells[5] === 'O') {
     ui.onOWin()
+    store.gameOver = true
   } else if (cells[6] === 'O' && cells[7] === 'O' && cells[8] === 'O') {
     ui.onOWin()
+    store.gameOver = true
   // for vertical wins for O
   } else if (cells[0] === 'O' && cells[3] === 'O' && cells[6] === 'O') {
     ui.onOWin()
+    store.gameOver = true
   } else if (cells[1] === 'O' && cells[4] === 'O' && cells[7] === 'O') {
     ui.onOWin()
+    store.gameOver = true
   } else if (cells[2] === 'O' && cells[5] === 'O' && cells[8] === 'O') {
     ui.onOWin()
+    store.gameOver = true
   // for diagonal wins for O
   } else if (cells[0] === 'O' && cells[4] === 'O' && cells[8] === 'O') {
     ui.onOWin()
+    store.gameOver = true
   } else if (cells[2] === 'O' && cells[4] === 'O' && cells[6] === 'O') {
     ui.onOWin()
+    store.gameOver = true
   }
 }
 
@@ -122,12 +136,7 @@ const checkForTie = function () {
     }
   }
   ui.onTie()
-}
-
-const isGameOver = function () {
-  if (checkForWin() === true || checkForTie === true) {
-    ui.onGameOver()
-  }
+  store.gameOver = true
 }
 
 module.exports = {
@@ -135,8 +144,7 @@ module.exports = {
   onUpdateGame,
   checkForWin,
   checkForTie,
-  cellClick,
-  isGameOver
+  cellClick
 }
 
 // check if a new game has been started

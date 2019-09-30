@@ -20,19 +20,17 @@ const onSignUpSuccess = function () {
 }
 
 const onSignUpFailure = function () {
-  failureMessage('Sign up failed :(')
+  failureMessage('Sign up failed.')
 }
 
 const onSignInSuccess = function (responseData) {
   successMessage('Signed In Successfully!')
-  console.log('responseData is', responseData)
   store.user = responseData.user
-  console.log('store is', store)
   $('.sign-up, .sign-in').hide()
 }
 
 const onSignInFailure = function () {
-  failureMessage('Sign in failed :(')
+  failureMessage('Sign in failed.')
 }
 
 const onChangePasswordSuccess = function () {
@@ -40,7 +38,7 @@ const onChangePasswordSuccess = function () {
 }
 
 const onChangePasswordFailure = function () {
-  failureMessage('Password change failed :(')
+  failureMessage('Password change failed.')
 }
 
 const onSignOutSuccess = function () {
