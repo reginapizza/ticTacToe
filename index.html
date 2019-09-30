@@ -11,77 +11,86 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
+
     <body>
 <!--title div-->
-      <div class="title">
-        <h1>Tic Tac Toe</h1>
+      <div class="row">
+        <h1 class="title column-12">Tic Tac Toe</h1>
       </div>
-      <div class="column-12">
-        <!--sign up-->
-        <h2 class="sign-up"> Sign Up </h2>
-        <form class="sign-up">
-          <input type="email" name="credentials[email]" placeholder="Enter Email">
-          <input type="password" name="credentials[password]"
-          placeholder="Enter Password">
-          <input type="password" name="credentials[password_confirmation]"
-          placeholder="Enter Password Again">
-          <button>Sign Up!</button>
-        </form>
-        <!--sign in-->
-        <h2 class="sign-in"> Sign In </h2>
-        <form class="sign-in">
-          <input type="email" name="credentials[email]" placeholder="Enter Email">
-          <input type="password" name="credentials[password]"
-          placeholder="Enter Password">
-          <button>Sign In!</button>
-        </form>
-        <!--change password-->
-        <h2 class="change-password"> Change Password </h2>
-        <form class="change-password">
-          <input type="password" name="passwords[old]"
-          placeholder="Enter Old Password">
-          <input type="password" name="passwords[new]"
-          placeholder="Enter New Password">
-          <button>Change Password!</button>
-        </form>
-        <!--sign out-->
-        <h2 class="sign-out"> Sign Out </h2>
-        <form class="sign-out">
-          <button>Sign Out!</button>
-        </form>
-        <h2 id="message"></h2>
+      <div class="row">
+        <div class="column-3">
+          <!--sign up-->
+          <h2 class="sign-up"> Sign Up </h2>
+          <form class="sign-up">
+            <input type="email" name="credentials[email]" placeholder="Enter Email">
+            <input type="password" name="credentials[password]"
+            placeholder="Enter Password">
+            <input type="password" name="credentials[password_confirmation]"
+            placeholder="Enter Password Again">
+            <button>Sign Up!</button>
+          </form>
+          <!--sign in-->
+          <h2 class="sign-in"> Sign In </h2>
+          <form class="sign-in">
+            <input type="email" name="credentials[email]" placeholder="Enter Email">
+            <input type="password" name="credentials[password]"
+            placeholder="Enter Password">
+            <button>Sign In!</button>
+          </form>
+          <!--change password-->
+          <h2 class="change-password"> Change Password </h2>
+          <form class="change-password">
+            <input type="password" name="passwords[old]"
+            placeholder="Enter Old Password">
+            <input type="password" name="passwords[new]"
+            placeholder="Enter New Password">
+            <button>Change Password!</button>
+          </form>
+          <!--sign out-->
+          <h2 class="sign-out"> Sign Out </h2>
+          <form class="sign-out">
+            <button>Sign Out!</button>
+          </form>
+          <h2 id="message"></h2>
+        </div>
       </div>
 <!--Game Board-->
-      <button id="new-game">Click here for a new game! </button>
-      <div class="board">
-        <div class="row">
-          <div id="0" class="col-sm column cell"></div>
-          <div id="1" class="col-sm column cell"></div>
-          <div id="2" class="col-sm column cell"></div>
-        </div>
+      <div class="column-6">
+        <button id="new-game">Click here for a new game! </button>
+        <div class="board">
+          <div class="row">
+            <div id="0" class="col-sm column cell"></div>
+            <div id="1" class="col-sm column cell"></div>
+            <div id="2" class="col-sm column cell"></div>
+          </div>
 
-        <div class="row">
-          <div id="3" class="col-sm column cell"></div>
-          <div id="4" class="col-sm column cell"></div>
-          <div id="5" class="col-sm column cell"></div>
-        </div>
+          <div class="row">
+            <div id="3" class="col-sm column cell"></div>
+            <div id="4" class="col-sm column cell"></div>
+            <div id="5" class="col-sm column cell"></div>
+          </div>
 
-        <div class="row">
-          <div id="6" class="col-sm column cell"></div>
-          <div id="7" class="col-sm column cell"></div>
-          <div id="8" class="col-sm column cell"></div>
+          <div class="row">
+            <div id="6" class="col-sm column cell"></div>
+            <div id="7" class="col-sm column cell"></div>
+            <div id="8" class="col-sm column cell"></div>
+          </div>
         </div>
       </div>
       <!--Message Box-->
-      <div id="messageBox"></div>
-      <!--Player Stats-->
-      <div class= "player-stats">
-        <h3 class= "player-stats">Player Stats:</h3>
-        <button id="total-games" class="player-stats">Show Total Games</button>
+      <div class="column-3">
+        <div id="messageBox"></div>
+        <!--Player Stats-->
+        <div class= "player-stats">
+          <h3 class= "player-stats">Player Stats:</h3>
+          <button id="total-games" class="player-stats">Show Total Games</button>
+        </div>
       </div>
       <!--footer-->
-      <footer>
-      <div> Made by Regina Scott at General Assembly.
+      <footer class="row">
+        <div class="column-12">
+          <div> Made by Regina Scott at General Assembly.
+          </div>
         </div>
       </footer>
     </body>
