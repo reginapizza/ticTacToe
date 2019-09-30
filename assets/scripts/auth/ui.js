@@ -50,6 +50,9 @@ const onSignOutSuccess = function () {
   $('.sign-up, .sign-in').show()
   $('.change-password, .sign-out').hide()
   $('.board').hide()
+  $('.player-stats').hide()
+  $('#new-game').hide()
+  $('#messageBox').hide()
 }
 
 const onSignOutFailure = function () {
