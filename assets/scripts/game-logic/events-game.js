@@ -58,7 +58,6 @@ const cellClick = function (event) {
     // this triggers onTie if the result is a tie
   }
 }
-// store.game.cells[event.target.id] = currentPlayer
 
 // this function will clear the gameboard, not refresh, and trigger api newGame
 const onUpdateGame = function (event) {
@@ -146,12 +145,3 @@ module.exports = {
   checkForTie,
   cellClick
 }
-
-// check if a new game has been started
-// -check if cell is empty when a player clicks it
-// -figure out which cell was clicked on (through the ID)
-// -use that ID to update the array
-// -when the array is updated, use that to check if it
-// -matches any winning combinations
-// sending index, current player, and if the game is over to api
-// switch player if game is not over

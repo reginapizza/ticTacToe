@@ -28,6 +28,8 @@ const onSignInSuccess = function (responseData) {
   store.user = responseData.user
   $('.sign-up, .sign-in').hide()
   $('.change-password, .sign-out').css('display', 'block')
+  $('#new-game').css('display', 'block')
+  $('.player-stats').css('display', 'block')
 }
 
 const onSignInFailure = function () {
