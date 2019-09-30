@@ -56,8 +56,18 @@ const updateGame = function (value, index, status) {
           index: index,
           value: value
         },
-        over: false
+        over: status
       }
+    }
+  })
+}
+
+const getGameTotal = function () {
+  return $.ajax({
+    url: config.apiUrl + '/games/',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
     }
   })
 }
@@ -66,5 +76,6 @@ module.exports = {
   newGame,
   indexOfGame,
   showGame,
-  updateGame
+  updateGame,
+  getGameTotal
 }

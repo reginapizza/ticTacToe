@@ -11,6 +11,7 @@ const onSameChoice = function () {
 }
 
 const onNewGameSuccess = function (data) {
+  console.log('got to onNewGameSuccess')
   store.game = data.game
   console.log(store)
   $('.cell').text('')
@@ -29,10 +30,12 @@ const onUpdateGameSuccess = function (data) {
 }
 
 const onXWin = function () {
+  store.gameOver = true
   $('#messageBox').text('X won the game! Press the "Create a New Game Button" to play again!')
 }
 
 const onOWin = function () {
+  store.gameOver = true
   $('#messageBox').text('O won the game! Press the "Create a New Game Button" to play again!')
 }
 
@@ -40,9 +43,16 @@ const onTie = function () {
   $('#messageBox').text('Woah! The game is a tie! Press the "Create a New Game Button" to play again!')
 }
 const onGameOver = function () {
-  store.gameOver = true
-  $('.cell').text('')
   $('#messageBox').text('The game has ended! Press the "Create a New Game Button" to play again!')
+}
+
+const onGameTotalSuccess = function (responseData) {
+  console.log('what is the response ', responseData)
+  $('#total-games').text(`${responseData.games.length}`)
+}
+
+const onGameTotalFailure = function (responseData) {
+  $('#total-games').text('Could not retrieve total games right now.')
 }
 
 module.exports = {
@@ -54,5 +64,7 @@ module.exports = {
   onXWin,
   onOWin,
   onTie,
-  onGameOver
+  onGameOver,
+  onGameTotalSuccess,
+  onGameTotalFailure
 }

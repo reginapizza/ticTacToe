@@ -30,6 +30,7 @@ const onSignInSuccess = function (responseData) {
   $('.change-password, .sign-out').css('display', 'block')
   $('#new-game').css('display', 'block')
   $('.player-stats').css('display', 'block')
+  $('.board').css('display', 'block')
 }
 
 const onSignInFailure = function () {
@@ -48,6 +49,7 @@ const onSignOutSuccess = function () {
   successMessage('Signed out successfully!')
   $('.sign-up, .sign-in').show()
   $('.change-password, .sign-out').hide()
+  $('.board').hide()
 }
 
 const onSignOutFailure = function () {

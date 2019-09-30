@@ -4,11 +4,11 @@ const api = require('./api-game.js')
 const ui = require('./ui-game.js')
 const store = require('../store')
 
-store.player1 = 'X'
-store.player2 = 'O'
-store.currentPlayer = 'X'
-store.gameOver = false
-store.cells = ['', '', '', '', '', '', '', '', '']
+// store.player1 = 'X'
+// store.player2 = 'O'
+// store.currentPlayer = 'X'
+// store.gameOver = false
+// store.cells = ['', '', '', '', '', '', '', '', '']
 
 const switchPlayer = function () {
   if (store.currentPlayer === 'X') {
@@ -19,10 +19,13 @@ const switchPlayer = function () {
 }
 
 const onNewGame = function (event) {
-  event.preventDefault()
+  store.player1 = 'X'
+  store.player2 = 'O'
+  store.currentPlayer = 'X'
   store.gameOver = false
-  store.currentPlayer = store.player1
   store.cells = ['', '', '', '', '', '', '', '', '']
+  console.log('got to onNewGame')
+  event.preventDefault()
   api.newGame()
     .then(ui.onNewGameSuccess)
     .catch(ui.onNewGameFailure)
@@ -35,6 +38,7 @@ const cellClick = function (event) {
       store.cells[event.target.id] = 'X'
       $(event.target).text('X')
       const id = store.game.id
+      console.log(id, store.game.id)
       api.updateGame(id)
         .then(ui.onXTurnSuccess)
         .catch(ui.onError)
@@ -68,63 +72,47 @@ const onUpdateGame = function (event) {
     .catch(ui.onUpdateGameFailure)
 }
 
-// this functions checks for a win and tells triggers ui.onWin function
+// this functions checks for a win and triggers ui.onXWin or ui.onOWin function
 const checkForWin = function () {
   const cells = store.cells
   // for horizontal wins X
   if (cells[0] === 'X' && cells[1] === 'X' && cells[2] === 'X') {
     ui.onXWin()
-    store.gameOver = true
   } else if (cells[3] === 'X' && cells[4] === 'X' && cells[5] === 'X') {
     ui.onXWin()
-    store.gameOver = true
   } else if (cells[6] === 'X' && cells[7] === 'X' && cells[8] === 'X') {
     ui.onXWin()
-    store.gameOver = true
     // for vertical wins for X
   } else if (cells[0] === 'X' && cells[3] === 'X' && cells[6] === 'X') {
     ui.onXWin()
-    store.gameOver = true
   } else if (cells[1] === 'X' && cells[4] === 'X' && cells[7] === 'X') {
     ui.onXWin()
-    store.gameOver = true
   } else if (cells[2] === 'X' && cells[5] === 'X' && cells[8] === 'X') {
     ui.onXWin()
-    store.gameOver = true
   // for diagonal wins for X
   } else if (cells[0] === 'X' && cells[4] === 'X' && cells[8] === 'X') {
     ui.onXWin()
-    store.gameOver = true
   } else if (cells[2] === 'X' && cells[4] === 'X' && cells[6] === 'X') {
     ui.onXWin()
-    store.gameOver = true
   // for horizontal wins for O
   } else if (cells[0] === 'O' && cells[1] === 'O' && cells[2] === 'O') {
     ui.onOWin()
-    store.gameOver = true
   } else if (cells[3] === 'O' && cells[4] === 'O' && cells[5] === 'O') {
     ui.onOWin()
-    store.gameOver = true
   } else if (cells[6] === 'O' && cells[7] === 'O' && cells[8] === 'O') {
     ui.onOWin()
-    store.gameOver = true
   // for vertical wins for O
   } else if (cells[0] === 'O' && cells[3] === 'O' && cells[6] === 'O') {
     ui.onOWin()
-    store.gameOver = true
   } else if (cells[1] === 'O' && cells[4] === 'O' && cells[7] === 'O') {
     ui.onOWin()
-    store.gameOver = true
   } else if (cells[2] === 'O' && cells[5] === 'O' && cells[8] === 'O') {
     ui.onOWin()
-    store.gameOver = true
   // for diagonal wins for O
   } else if (cells[0] === 'O' && cells[4] === 'O' && cells[8] === 'O') {
     ui.onOWin()
-    store.gameOver = true
   } else if (cells[2] === 'O' && cells[4] === 'O' && cells[6] === 'O') {
     ui.onOWin()
-    store.gameOver = true
   }
 }
 
@@ -135,7 +123,14 @@ const checkForTie = function () {
     }
   }
   ui.onTie()
-  store.gameOver = true
+  ui.onGameOver()
+}
+
+const gameTotal = function (event) {
+  event.preventDefault()
+  api.getGameTotal()
+    .then(ui.onGameTotalSuccess)
+    .catch(ui.onGameTotalFailure)
 }
 
 module.exports = {
@@ -143,5 +138,6 @@ module.exports = {
   onUpdateGame,
   checkForWin,
   checkForTie,
-  cellClick
+  cellClick,
+  gameTotal
 }
