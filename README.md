@@ -6,6 +6,9 @@ Important Links:
 
 https://reginapizza.github.io/ticTacToe/
 
+Technologies Used:
+HTML, CSS, JavaScript, jquery, AJAX, JSON, Bootstrap, Sass
+
 User Stories:
 
 As a user, I want my game to aesthetically pleasing so that I feel interested enough to stay on the page and play it.
