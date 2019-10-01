@@ -35,7 +35,7 @@ For future updates, I would also like to add a total games won function to the p
 
 Images:
 
-![Original Wireframe drawing for Tic Tac Toe SPA](https://imgur.com/gallery/WJb6ZAl)
+![Original Wireframe drawing for Tic Tac Toe SPA](https://i.imgur.com/KJCHgSS.jpg)
 
 Update 1.1:
 
