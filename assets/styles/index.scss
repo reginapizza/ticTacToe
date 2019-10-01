@@ -1,33 +1,52 @@
 @import '~bootstrap/scss/bootstrap';
 
-.board {
-  background-color: blue;
-  display: none;
-  width: 500px;
+body {
+  text-align: center;
 }
 
+.title {
+  background-color: #F25764;
+  height: 100px;
+}
+
+.board {
+  display: none;
+}
+
+button {
+  border-radius: 6px;
+  background-color: #F25764;
+  color: #401839;
+  outline: none;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+button:hover {
+  border-radius: 6px;
+  background-color: #F27D52;
+  color: #401839;
+  outline: white;
+  text-transform: uppercase;
+}
+
+.cell {
+  background-color: #F27D52;
+  height: 100px;
+  width: 50px;
+}
 .column {
   border: solid black 3px;
   color: orange;
 }
 
 .row {
-  border: solid black 3px;
   color: orange;
-  height: 100px;
 }
 
 footer {
   background: pink;
-  height: 50px;
-}
-
-form {
-  background-color: silver;
-}
-
-.title {
-  background-color: red;
+  height: 100px;
 }
 
 .change-password {
