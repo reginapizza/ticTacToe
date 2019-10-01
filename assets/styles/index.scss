@@ -45,6 +45,10 @@ button:hover {
   text-align: center;
 }
 
+.cell:hover {
+  background-color: #7056E8;
+}
+
 .column {
   color: orange;
   padding: 5px;
@@ -88,11 +92,20 @@ button:hover {
   display: none;
 }
 
-#message, #messageBox {
+#messageBox {
   background-color: #FE5EFF;
+  font-size: 20px;
+  margin: 5px;
 }
 
 .player-stats {
   display: none;
+  text-align: center;
+}
+
+#total-games-number {
+  color: orange;
+  // display: none;
+  font-size: 80px;
   text-align: center;
 }

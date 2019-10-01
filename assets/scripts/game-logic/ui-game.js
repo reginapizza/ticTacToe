@@ -40,7 +40,6 @@ const onNewGameFailure = function (error) {
 
 const onUpdateGameSuccess = function (data) {
   store.game = data.game
-  console.log(data)
   $('#messageBox').text('Make your move...choose wisely!')
 }
 
@@ -63,12 +62,11 @@ const onGameOver = function () {
 }
 
 const onGameTotalSuccess = function (responseData) {
-  console.log('what is the response ', responseData)
-  $('#total-games').text(`${responseData.games.length}`)
+  $('#total-games-number').text(`${responseData.games.length}`)
 }
 
 const onGameTotalFailure = function (responseData) {
-  $('#total-games').text('Could not retrieve total games right now.')
+  $('#total-games-number').text('Could not retrieve total games right now.')
 }
 
 module.exports = {
