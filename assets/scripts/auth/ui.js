@@ -17,7 +17,7 @@ const onSignInSuccess = function (responseData) {
   $('#message').text('Signed In Successfully!')
   store.user = responseData.user
   $('.sign-up, .sign-in').hide()
-  $('.messageBox').show()
+  $('#messageBox').show()
   $('.change-password, .sign-out').css('display', 'block')
   $('#new-game').css('display', 'block')
   $('.player-stats').css('display', 'block')
@@ -48,6 +48,7 @@ const onSignOutSuccess = function () {
   $('#new-game').hide()
   $('#messageBox').hide()
   $('.sign-out').trigger('reset')
+  $('#total-games-number').text('')
 }
 
 const onSignOutFailure = function () {
