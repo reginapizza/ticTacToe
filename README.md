@@ -36,3 +36,7 @@ For future updates, I would also like to add a total games won function to the p
 Images:
 
 ![Original Wireframe drawing for Tic Tac Toe SPA](https://imgur.com/gallery/WJb6ZAl)
+
+Update 1.1:
+
+Bugs are fixed! Users will no longer have issues with messages not displaying or previous total games number showing after signing out and signing back in again.
