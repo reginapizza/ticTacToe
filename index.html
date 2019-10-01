@@ -6,6 +6,7 @@
 
     <!-- Do not add `link` tags-->
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Sigmar+One&display=swap" rel="stylesheet">
 
     <!-- Do not add `script` tags-->
     <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
@@ -18,9 +19,9 @@
         <h1 class="title col-12">Tic Tac Toe</h1>
       </div>
       <div class="row">
-        <div class="col-3">
+        <div class="col-3 panel">
           <!--sign up-->
-          <h5 class="sign-up"> Sign Up </h5>
+          <h5 class="sign-up header"> Sign Up </h5>
           <form class="sign-up">
             <input type="email" name="credentials[email]" placeholder="Enter Email">
             <input type="password" name="credentials[password]"
@@ -30,7 +31,7 @@
             <button>Sign Up!</button>
           </form>
           <!--sign in-->
-          <h5 class="sign-in"> Sign In </h5>
+          <h5 class="sign-in header"> Sign In </h5>
           <form class="sign-in">
             <input type="email" name="credentials[email]" placeholder="Enter Email">
             <input type="password" name="credentials[password]"
@@ -38,7 +39,7 @@
             <button>Sign In!</button>
           </form>
           <!--change password-->
-          <h5 class="change-password"> Change Password </h5>
+          <h5 class="change-password header"> Change Password </h5>
           <form class="change-password">
             <input type="password" name="passwords[old]"
             placeholder="Enter Old Password">
@@ -47,15 +48,15 @@
             <button>Change Password!</button>
           </form>
           <!--sign out-->
-          <h5 class="sign-out"> Sign Out </h5>
+          <h5 class="sign-out header"> Sign Out </h5>
           <form class="sign-out">
             <button>Sign Out!</button>
           </form>
           <h5 id="message"></h5>
-          <button id="new-game">Click here for a new game! </button>
+          <button id="new-game">Click here to create a new game! </button>
         </div>
         <!--Game Board-->
-        <div class="col-6">
+        <div class="col-6 panel">
           <div class="board">
             <div class="row">
               <div id="0" class="col-4 column cell"></div>
@@ -75,12 +76,13 @@
           </div>
         </div>
         <!--Message Box-->
-        <div class="col-3">
+        <div class="col-3 panel">
           <div id="messageBox"></div>
           <!--Player Stats-->
           <div class= "player-stats">
-            <h3 class= "player-stats">Player Stats:</h3>
+            <h3 class= "player-stats header">Player Stats:</h3>
             <button id="total-games" class="player-stats">Show Total Games</button>
+            <div id="total-games-number"></div>
           </div>
         </div>
       </div>

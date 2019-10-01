@@ -1,22 +1,29 @@
 @import '~bootstrap/scss/bootstrap';
 
 body {
+  background-color: #C056E8;
   text-align: center;
+  font-family: 'Sigmar One', cursive;
 }
 
 .title {
-  background-color: #F25764;
-  height: 100px;
+  height: 130px;
+  font-size: 100px;
 }
 
 .board {
   display: none;
+  margin: auto;
+  width: 90%;
 }
 
 button {
   border-radius: 6px;
-  background-color: #F25764;
-  color: #401839;
+  background-color: #C056E8;
+  color: #FFFFFF;
+  display: inline-block;
+  padding: 10px;
+  margin: 10px;
   outline: none;
   text-align: center;
   text-transform: uppercase;
@@ -24,29 +31,45 @@ button {
 
 button:hover {
   border-radius: 6px;
-  background-color: #F27D52;
-  color: #401839;
-  outline: white;
+  background-color: #FE5EFF;
+  color: #7056E8;
   text-transform: uppercase;
 }
 
 .cell {
-  background-color: #F27D52;
-  height: 100px;
-  width: 50px;
-}
-.column {
+  background-color: #5E6DFF;
   border: solid black 3px;
+  border-radius: 10px;
+  font-size: 80px;
+  height: 140px;
+  text-align: center;
+}
+
+.column {
   color: orange;
+  padding: 5px;
+}
+
+.header {
+  font-size: 40px;
+  padding: 5px;
+}
+
+.panel {
+  background-color: #AD6AFF;
+  padding: 10px;
 }
 
 .row {
   color: orange;
 }
 
-footer {
-  background: pink;
-  height: 100px;
+// footer {
+//   background: pink;
+//   height: 100px;
+// }
+.sign-up {
+  padding: 20px;
 }
 
 .change-password {
@@ -65,6 +88,11 @@ footer {
   display: none;
 }
 
+#message, #messageBox {
+  background-color: #FE5EFF;
+}
+
 .player-stats {
   display: none;
+  text-align: center;
 }
