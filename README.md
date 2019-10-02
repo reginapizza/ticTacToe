@@ -43,3 +43,7 @@ Images:
 Update 1.1:
 
 Bugs are fixed! Users will no longer have issues with messages not displaying or previous total games number showing after signing out and signing back in again.
+
+Update 1.2:
+
+User sign-up, sign-in and change pasword input fields will no longer show unless they are pushed by their respective event start button! Yay for no more ugly input fields on the screen! 

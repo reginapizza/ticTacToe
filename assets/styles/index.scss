@@ -55,7 +55,7 @@ button:hover {
 }
 
 .header {
-  font-size: 40px;
+  font-size: 36px;
   padding: 5px;
 }
 
@@ -72,11 +72,28 @@ button:hover {
 //   background: pink;
 //   height: 100px;
 // }
-.sign-up {
-  padding: 20px;
-}
 
 .change-password {
+  display: none;
+}
+
+.sign-up-start {
+  display: none;
+}
+
+.sign-in-start {
+  display: none;
+}
+
+.change-password-title {
+  display: none;
+}
+
+.change-password-start-button {
+  display: none;
+}
+
+.change-password-start {
   display: none;
 }
 

@@ -16,9 +16,11 @@ const onSignUpFailure = function () {
 const onSignInSuccess = function (responseData) {
   $('#message').text('Signed In Successfully!')
   store.user = responseData.user
-  $('.sign-up, .sign-in').hide()
+  $('.sign-up, .sign-up-start-button, .sign-in').hide()
   $('#messageBox').show()
-  $('.change-password, .sign-out').css('display', 'block')
+  $('.change-password-title').show()
+  $('.change-password-start-button').show()
+  $('.sign-out').css('display', 'block')
   $('#new-game').css('display', 'block')
   $('.player-stats').css('display', 'block')
   $('.sign-in').trigger('reset')
@@ -41,14 +43,15 @@ const onChangePasswordFailure = function () {
 
 const onSignOutSuccess = function () {
   $('#message').text('Signed out successfully!')
-  $('.sign-up, .sign-in').show()
-  $('.change-password, .sign-out').hide()
+  $('.sign-up, .sign-in, .sign-up-start-button, .sign-in-start-button').show()
+  $('.change-password, .sign-out, .sign-up-start, .sign-in-start').hide()
   $('.board').hide()
   $('.player-stats').hide()
   $('#new-game').hide()
   $('#messageBox').hide()
   $('.sign-out').trigger('reset')
   $('#total-games-number').text('')
+  $('.change-password-title').hide()
 }
 
 const onSignOutFailure = function () {
