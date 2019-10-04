@@ -1,10 +1,10 @@
 ## **Hello, World! Welcome to my Game of Tic-Tac-Toe**.
 ------------------------------------------------------
 
-### This application allows users to play a simple game of Tic-Tac-Toe and keep
+**This application allows users to play a simple game of Tic-Tac-Toe and keep
 track of the total games they have played. I created this project as part of
 General Assembly's Software Engineering Immersive Program and I hope you will
-get some enjoyment out of it!
+get some enjoyment out of it!**
 
 ### **Important Links**:
 
