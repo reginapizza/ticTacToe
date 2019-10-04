@@ -1,12 +1,12 @@
-## **Hello, World! Welcome to my game of Tic-Tac-Toe**.
+## **Hello, World! Welcome to my Game of Tic-Tac-Toe**.
 ------------------------------------------------------
 
-###This application allows users to play a simple game of Tic-Tac-Toe and keep
+### This application allows users to play a simple game of Tic-Tac-Toe and keep
 track of the total games they have played. I created this project as part of
 General Assembly's Software Engineering Immersive Program and I hope you will
 get some enjoyment out of it!
 
-###**Important Links**:
+### **Important Links**:
 
 * [My SPA hosted on Github Pages](https://reginapizza.github.io/ticTacToe/)
 * [My Tic Tac Toe repository on Github](https://github.com/reginapizza/ticTacToe)
@@ -60,7 +60,7 @@ to display the total number of games played. To finish off the SPA, I styled wit
 CSS using bootstrap and deciced to go with a color theme that was inspired by a
 mix of Twitch and Halloween.
 
-### **Problems I ran in to:**
+### **Problems I Ran in to:**
 
 I realized during final debugging that when a user is signed in, plays a game
 and shows their total games, then logs out and logs back in as another user,
@@ -78,7 +78,7 @@ I would also like to add a total games won function to the player stats, and I
 would like to be able to have the player choose whether they can be X or O
 depending on their preference. Stay tuned to see how this project grows!
 
-### **Images:**
+### **Original Wireframe Sketch:**
 
 ![Original Wireframe drawing for Tic Tac Toe SPA](https://i.imgur.com/KJCHgSS.jpg)
 
