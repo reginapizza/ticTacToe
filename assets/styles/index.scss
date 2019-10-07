@@ -1,14 +1,15 @@
 @import '~bootstrap/scss/bootstrap';
+@import './css-variables';
 
 body {
-  background-color: #C056E8;
-  text-align: center;
+  background-color: $pink-purple;
   font-family: 'Sigmar One', cursive;
+  text-align: center;
 }
 
 .title {
-  height: 130px;
   font-size: 100px;
+  height: 130px;
 }
 
 .board {
@@ -18,39 +19,37 @@ body {
 }
 
 button {
+  background-color: $pink-purple;
   border-radius: 6px;
-  background-color: #C056E8;
-  color: #FFFFFF;
+  color: $white;
   display: inline-block;
-  padding: 10px;
   margin: 10px;
   outline: none;
+  padding: 10px;
   text-align: center;
   text-transform: uppercase;
-}
-
-button:hover {
-  border-radius: 6px;
-  background-color: #FE5EFF;
-  color: #7056E8;
-  text-transform: uppercase;
+  &:hover {
+    background-color: $pink;
+    border-radius: 6px;
+    color: $purple;
+    text-transform: uppercase;
+  }
 }
 
 .cell {
-  background-color: #5E6DFF;
-  border: solid black 3px;
+  background-color: $gameboard-purple-blue;
+  border: solid $black 3px;
   border-radius: 10px;
   font-size: 80px;
   height: 140px;
   text-align: center;
-}
-
-.cell:hover {
-  background-color: #7056E8;
+  &:hover {
+    background-color: $purple;
+  }
 }
 
 .column {
-  color: orange;
+  color: $orange;
   padding: 5px;
 }
 
@@ -60,18 +59,13 @@ button:hover {
 }
 
 .panel {
-  background-color: #AD6AFF;
+  background-color: $light-purple;
   padding: 10px;
 }
 
 .row {
-  color: orange;
+  color: $orange;
 }
-
-// footer {
-//   background: pink;
-//   height: 100px;
-// }
 
 .change-password {
   display: none;
@@ -110,7 +104,8 @@ button:hover {
 }
 
 #messageBox {
-  background-color: #FE5EFF;
+  background-color: $pink;
+  border-radius: 6px;
   font-size: 20px;
   margin: 5px;
 }
@@ -121,7 +116,7 @@ button:hover {
 }
 
 #total-games-number {
-  color: orange;
+  color: $orange;
   // display: none;
   font-size: 80px;
   text-align: center;
