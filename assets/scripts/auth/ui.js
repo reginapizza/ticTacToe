@@ -44,7 +44,7 @@ const onChangePasswordFailure = function () {
 const onSignOutSuccess = function () {
   $('#message').text('Signed out successfully!')
   $('.sign-up, .sign-in, .sign-up-start-button, .sign-in-start-button').show()
-  $('.change-password, .sign-out, .sign-up-start, .sign-in-start').hide()
+  $('.change-password, .sign-out, .sign-up-start, .sign-in-start, .change-password-start-button').hide()
   $('.board').hide()
   $('.player-stats').hide()
   $('#new-game').hide()

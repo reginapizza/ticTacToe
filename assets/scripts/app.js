@@ -10,6 +10,7 @@ $(() => {
   $('.sign-in').on('submit', authEvents.onSignIn)
   $('.change-password-start-button').on('click', authEvents.onChangePasswordButton)
   $('.change-password').on('submit', authEvents.onChangePassword)
+  $('.cancel').on('click', authEvents.onCancelButton)
   $('.sign-out').on('submit', authEvents.onSignOut)
   $('.cell').on('click', gameEvents.cellClick)
   $('#new-game').on('click', gameEvents.onNewGame)
