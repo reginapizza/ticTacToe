@@ -47,24 +47,26 @@
           </form>
           <button class="sign-in-start-button">Click Here to Sign In!</button>
           <!--change password-->
-          <div class="mobile-hide">
-            <h5 class="change-password-title header"> Change Password </h5>
+          <div class="row">
+            <form class="change-password">
+              <div class="mobile-hide">
+                <h5 class="change-password-title header"> Change Password </h5>
+              </div>
+              <input class="change-password" type="password" name="passwords[old]"
+              placeholder="Enter Old Password">
+              <input class="change-password" type="password" name="passwords[new]"
+              placeholder="Enter New Password">
+              <button class="change-password">Change Password!</button>
+            </form>
+            <button class="change-password-start-button">Click here to change Password!</button>
+            <!--sign out-->
+            <div class="mobile-hide">
+              <h5 class="sign-out header"> Sign Out </h5>
+            </div>
+            <form class="sign-out">
+              <button>Sign Out!</button>
+            </form>
           </div>
-          <form class="change-password">
-            <input class="change-password" type="password" name="passwords[old]"
-            placeholder="Enter Old Password">
-            <input class="change-password" type="password" name="passwords[new]"
-            placeholder="Enter New Password">
-            <button class="change-password">Change Password!</button>
-          </form>
-          <button class="change-password-start-button">Click here to change Password!</button>
-          <!--sign out-->
-          <div class="mobile-hide">
-            <h5 class="sign-out header"> Sign Out </h5>
-          </div>
-          <form class="sign-out">
-            <button>Sign Out!</button>
-          </form>
           <h5 id="message"></h5>
           <button id="new-game">Click here to create a new game! </button>
         </div>

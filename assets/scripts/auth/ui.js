@@ -22,7 +22,7 @@ const onSignInSuccess = function (responseData) {
   $('.change-password-start-button').show()
   $('.sign-out').css('display', 'block')
   $('#new-game').css('display', 'block')
-  $('.player-stats').css('display', 'block')
+  $('.player-stats').css('display', 'inline-block')
   $('.sign-in').trigger('reset')
 }
 
