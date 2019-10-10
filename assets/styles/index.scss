@@ -9,8 +9,8 @@ body {
 
 .title {
   font-size: 100px;
-  padding-top: 2rem;
   padding-bottom: 2rem;
+  padding-top: 2rem;
 }
 
 .board {
@@ -134,9 +134,9 @@ input[type=email], input[type=password] {
     font-size: 10px;
   }
 
-  .header {
-    font-size: 18px;
-  }
+  // .header {
+  //   font-size: 18px;
+  // }
 
   .mobile-hide {
     display: none;
@@ -149,8 +149,8 @@ input[type=email], input[type=password] {
 
   .title {
     font-size: 50px;
-    padding-top: 1rem;
     padding-bottom: 1rem;
+    padding-top: 1rem;
   }
 
   #new-game {
@@ -160,6 +160,6 @@ input[type=email], input[type=password] {
   }
 
   #total-games-number {
-    font-size: 18px;
+    font-size: 40px;
   }
 }
