@@ -19,39 +19,49 @@
         <h1 class="title col-12">Tic Tac Toe</h1>
       </div>
       <div class="row">
-        <div class="col-3 panel">
+        <div class="auth col-12 col-lg-3 panel">
           <!--sign up-->
-          <h5 class="sign-up header"> Sign Up </h5>
+          <div>
+            <h5 class="sign-up header mobile-hide"> Sign Up </h5>
+          </div>
           <form class="sign-up">
             <input class="sign-up-start" type="email" name="credentials[email]" placeholder="Enter Email">
             <input class="sign-up-start" type="password" name="credentials[password]"
             placeholder="Enter Password">
             <input class="sign-up-start" type="password" name="credentials[password_confirmation]"
             placeholder="Enter Password Again">
+            <br>
             <button class="sign-up-start">Sign Up!</button>
           </form>
           <button class="sign-up-start-button"> Click here to Sign Up!</button>
           <!--sign in-->
-          <h5 class="sign-in header"> Sign In </h5>
+          <div>
+            <h5 class="sign-in header mobile-hide"> Sign In </h5>
+          </div>
           <form class="sign-in">
             <input class="sign-in-start" type="email" name="credentials[email]" placeholder="Enter Email">
             <input class="sign-in-start" type="password" name="credentials[password]"
             placeholder="Enter Password">
+            <br>
             <button class="sign-in-start">Sign In!</button>
           </form>
           <button class="sign-in-start-button">Click Here to Sign In!</button>
           <!--change password-->
-          <h5 class="change-password-title header"> Change Password </h5>
+          <div class="mobile-hide">
+            <h5 class="change-password-title header"> Change Password </h5>
+          </div>
           <form class="change-password">
-            <input class="change-password-start" type="password" name="passwords[old]"
+            <input class="change-password" type="password" name="passwords[old]"
             placeholder="Enter Old Password">
-            <input class="change-password-start" type="password" name="passwords[new]"
+            <input class="change-password" type="password" name="passwords[new]"
             placeholder="Enter New Password">
-            <button class="change-password-start">Change Password!</button>
+            <button class="change-password">Change Password!</button>
           </form>
           <button class="change-password-start-button">Click here to change Password!</button>
           <!--sign out-->
-          <h5 class="sign-out header"> Sign Out </h5>
+          <div class="mobile-hide">
+            <h5 class="sign-out header"> Sign Out </h5>
+          </div>
           <form class="sign-out">
             <button>Sign Out!</button>
           </form>
@@ -59,7 +69,7 @@
           <button id="new-game">Click here to create a new game! </button>
         </div>
         <!--Game Board-->
-        <div class="col-6 panel">
+        <div class="col-12 col-lg-6 panel">
           <div class="board">
             <div class="row">
               <div id="0" class="col-4 column cell"></div>
@@ -79,7 +89,7 @@
           </div>
         </div>
         <!--Message Box-->
-        <div class="col-3 panel">
+        <div class="col-12 col-lg-3 panel">
           <div id="messageBox"></div>
           <!--Player Stats-->
           <div class= "player-stats">

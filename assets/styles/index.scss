@@ -9,7 +9,8 @@ body {
 
 .title {
   font-size: 100px;
-  height: 130px;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .board {
@@ -58,6 +59,11 @@ button {
   padding: 5px;
 }
 
+input[type=email], input[type=password] {
+  background-color: $light-purple;
+  color: $white;
+}
+
 .panel {
   background-color: $light-purple;
   padding: 10px;
@@ -87,9 +93,9 @@ button {
   display: none;
 }
 
-.change-password-start {
-  display: none;
-}
+// .change-password-start {
+//   display: none;
+// }
 
 .sign-out {
   display: none;
@@ -120,4 +126,38 @@ button {
   // display: none;
   font-size: 80px;
   text-align: center;
+}
+
+@media (max-width: 576px) {
+  .change-password-start-button {
+    display: none;
+    font-size: 10px;
+  }
+
+  .header {
+    font-size: 18px;
+  }
+
+  .mobile-hide {
+    display: none;
+  }
+
+  .sign-out {
+    display: none;
+    font-size: 10px;
+  }
+
+  .title {
+    font-size: 50px;
+  }
+
+  #new-game {
+    display: none;
+    font-size: 10px;
+    margin: 0 auto;
+  }
+
+  #total-games-number {
+    font-size: 18px;
+  }
 }
