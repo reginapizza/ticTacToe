@@ -37,6 +37,24 @@ button {
   }
 }
 
+.auth-button {
+  background-color: $pink;
+  border-radius: 6px;
+  color: $white;
+  display: inline-block;
+  margin: 10px;
+  outline: none;
+  padding: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  &:hover {
+    background-color: $pink;
+    border-radius: 6px;
+    color: $purple;
+    text-transform: uppercase;
+  }
+}
+
 .cell {
   background-color: $gameboard-purple-blue;
   border: solid $black 3px;
@@ -49,9 +67,28 @@ button {
   }
 }
 
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+.change-password {
+  display: none;
+  width: 100%;
+}
+
+.change-password-form {
+  background-color: $white;
+  color: $black;
+}
+
 .column {
   color: $orange;
   padding: 5px;
+}
+
+.content-board {
+  background-color: $light-purple;
 }
 
 .header {
@@ -59,7 +96,8 @@ button {
   padding: 5px;
 }
 
-input[type=email], input[type=password] {
+.sign-up-form,
+.sign-in-form {
   background-color: $light-purple;
   color: $white;
 }
@@ -75,38 +113,33 @@ input[type=email], input[type=password] {
 
 .change-password {
   display: none;
+  width: 100%;
 }
 
-.sign-up-start {
+.sign-up {
   display: none;
 }
 
-.sign-in-start {
-  display: none;
-}
-
-.change-password-title {
+.sign-in {
   display: none;
 }
 
 .change-password-start-button {
-  display: none;
+  width: 100%;
 }
-
-// .change-password-start {
-//   display: none;
-// }
 
 .sign-out {
   display: none;
+  width: 100%;
+}
+
+.sign-out-button {
+  width: 100%;
 }
 
 .new-game {
   display: none;
-}
-
-#new-game {
-  display: none;
+  width: 100%;
 }
 
 #messageBox {
@@ -123,20 +156,22 @@ input[type=email], input[type=password] {
 
 #total-games-number {
   color: $orange;
-  // display: none;
   font-size: 80px;
   text-align: center;
 }
 
 @media (max-width: 576px) {
   .change-password-start-button {
-    display: none;
     font-size: 10px;
+    margin: 0;
+    width: 100%;
   }
 
-  // .header {
-  //   font-size: 18px;
-  // }
+  .change-password {
+    font-size: 10px;
+    padding: 10px;
+    width: 49%;
+  }
 
   .mobile-hide {
     display: none;
@@ -145,6 +180,13 @@ input[type=email], input[type=password] {
   .sign-out {
     display: none;
     font-size: 10px;
+    padding: 10px;
+    width: 49%;
+  }
+
+  .sign-out-button {
+    margin: 0;
+    width: 100%;
   }
 
   .title {
@@ -153,13 +195,14 @@ input[type=email], input[type=password] {
     padding-top: 1rem;
   }
 
-  #new-game {
+  .new-game {
     display: none;
     font-size: 10px;
     margin: 0 auto;
   }
 
   #total-games-number {
-    font-size: 40px;
+    display: block;
+    font-size: 40xpx;
   }
 }
